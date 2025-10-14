@@ -25,8 +25,8 @@ The scan revealed /files which mirrored the FTP directory.
 Using anonymous credentials, I logged into FTP:
 
 ftp 10.201.102.67
-# Username: anonymous
-# Password: anonymous
+Username: anonymous
+Password: anonymous
 cd ftp
 
 I verified that the directory was writable and uploaded a PHP reverse shell:
@@ -88,7 +88,7 @@ Within a minute, I got a root shell:
 
 whoami        # root
 cat /root/root.txt
-# Output: THM{f963aaa6a430f210222158ae15c3d76d}
+Output: THM{f96...........}
 7) Analyzing Credentials from Network Capture
 
 I also found a suspicious packet capture in the directories. I analyzed it locally using tshark and strings to extract credentials:
@@ -98,7 +98,7 @@ strings suspicious.pcapng | egrep -i "user|login|username|password|pass|lennie" 
 This revealed:
 
 Username: lennie
-Password: c4ntg3t3n0ughsp1c3
+Password: c4ntg3t3n0ughp1c3
 
 These credentials were later used to SSH into the target.
 
